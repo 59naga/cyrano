@@ -16,7 +16,7 @@
     "ava": "ava --require babel-register",
     "lint": "eslint src test",
     "prepublish": "node -e \"if(process.env.TRAVIS_PASSED){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
-    "compile": "pnpm install && babel -V && babel src --out-dir lib"
+    "compile": "babel -V && babel src --out-dir lib"
   },
   "ava": {
     "files": [

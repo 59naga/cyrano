@@ -23,9 +23,8 @@ env:
     - secure: lIZBBTAQu3peLbrgqO5s1qQmlhrE/ZORlcAgus/fNdUNPqBiaGBDIe4y+aDyfg0YpPN6iEzSlOrMr/WGaLNL/+viFZ50KhuqmIDNjD54O1XvdjUFGrUO9UU+C9KuRnioLbq8C+OhAzEIJ4sxNhYwek5Q6QF0e0XF46pc5OFzD5GozUBvsMs0+fs0euhJOfjl2UrbPtaigKHgc4Bq3sA34/uacOgqK5n1NLskOP87/tyX+Z6QPw6cq8Z+BG8oSbyYOb2IKp2wbrgFIq2oO8sNQyNxpTLVrYV+1czI3kEGUgUxW790D2dl74XHX221LepYpcdx3wGQEDsruGdL9KTgyRcgLOUz3HOEKlyV7DYTugfUrp5NVSYiDqvXpiLtMSkXje2THvZgqGVZjp+d0Rfc1TaaKfVKR0lS43ftOpenrkfKwIdvPr3UFOZ0I4eDuPPvnF/y0K2zWG038I7NXpWvZarJM37UxcykuWlEqE4XPKD6oNLvcZrs7DLY4ZhwtUeZMH7x2qJKXbIT1xatNiLW09vAaf3Vj21DOQ0c5nyfvaF3m27lqBzKXVdk6CHr/6NiQePwLFLyhKBaNcYyFYTNcL/T97o1JCq5+x0XgOzt8UWbDLQZzPwIAHjt+pFOy3AIJ6Y94uDiJikd6KfRJmdimzQn2/Hnuap3NfHGbS9NteA=
 
 # Npm publish options
-before_deploy:
-  - npm install pnpm --global
 deploy:
+  skip_cleanup: true# keep the devDependencies
   provider: npm
   email: i59naga@icloud.com
   api_key:
