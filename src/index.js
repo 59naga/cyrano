@@ -15,18 +15,16 @@ const debug = (...args) => {
 };
 
 /**
-* インスタンスは「待ち行列（queue/キュー）」を一つだけ持つ。
-* メソッドの殆どは、キューにコールバック関数を追加する関数群で、
-* 以後、このキューに追加するコールバック関数を「イベント」と呼ぶ。
+* インスタンスは「待ち行列（`_queue`/キュー）」を一つだけ持つ。
 *
 * @class Cyrano
 */
 export default class Cyrano {
   /**
-  * 第一引数はインスタンスのプロパティとして扱う。
-  * このクラスを継承し、新しいメソッドを追加する場合は、`.div`メソッドの記法に従うこと。
+  * 第一引数はインスタンスのプロパティとして扱う
+  * このクラスを継承し、新しいメソッドを追加する場合は、`.fn`メソッドの記法に従うこと
   * （つまり、必ずpushの中でPromiseを返すこと）
-  * この文法に従う限り、メソッドチェインの恩恵を受けることができる。
+  * この文法に従う限り、メソッドチェインできる
   *
   * @constructor
   * @param {object={}} properties - インスタンスのプロパティを定義する
@@ -128,9 +126,9 @@ export default class Cyrano {
   }
 
   /**
-  * 子キューを作成し、イベントのthisへ与える。
-  * イベント内のthisに対しメソッドチェインを行うと、新しいイベント群を作成できる。
-  * `test/index.js`のfn実行例を参照
+  * 子キューを作成し、イベントのthisへ与える
+  * イベント内のthisに対しメソッドチェインを行うと、新しいイベント群を作成できる
+  * `test/index.js`の`.fn`実行例を参照
   *
   * @public
   * @method Cyrano#fn
@@ -159,8 +157,8 @@ export default class Cyrano {
   }
 
   /**
-  * 子キューを作成し、loopEndが呼ばれるまでイベントを実行し続ける
-  * `test/index.js`のloop実行例を参照
+  * 子キューを作成し、`.loopEnd`が呼ばれるまでイベントを実行し続ける
+  * `test/index.js`の`.loop`実行例を参照
   *
   * @public
   * @method Cyrano#loop
@@ -194,8 +192,8 @@ export default class Cyrano {
   }
 
   /**
-  * 親loopを終了する（次の.catchまでqueueを破壊する）
-  * `test/index.js`のloop実行例を参照
+  * 親`.loop`を終了する（次の`.catch`まで`_queue`を進める）
+  * `test/index.js`の`.loop`実行例を参照
   *
   * @public
   * @method Cyrano#loopEnd
