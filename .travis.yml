@@ -1,5 +1,8 @@
 # Quick boot options
 sudo: false
+cache:
+  directories:
+    - node_modules
 
 # Ignore version tags
 branches:
