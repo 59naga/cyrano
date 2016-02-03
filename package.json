@@ -1,6 +1,6 @@
 {
   "name": "cyrano",
-  "version": "0.0.0-alpha",
+  "version": "0.0.0-beta",
   "main": "lib",
   "files": [
     "lib",
@@ -16,7 +16,7 @@
     "ava": "ava --require babel-register",
     "lint": "eslint src test",
     "prepublish": "node -e \"if(process.env.TRAVIS_PASSED){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
-    "compile": "babel -V && babel src --out-dir lib"
+    "compile": "npm install && babel -V && babel src --out-dir lib"
   },
   "ava": {
     "files": [
