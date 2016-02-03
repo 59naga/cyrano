@@ -1,6 +1,21 @@
 Cyrano
 ---
 
+<p align="right">
+  <a href="https://npmjs.org/package/cyrano">
+    <img src="https://img.shields.io/npm/v/cyrano.svg?style=flat-square">
+  </a>
+  <a href="https://travis-ci.org/59naga/cyrano">
+    <img src="http://img.shields.io/travis/59naga/cyrano.svg?style=flat-square">
+  </a>
+  <a href="https://codeclimate.com/github/59naga/cyrano/coverage">
+    <img src="https://img.shields.io/codeclimate/github/59naga/cyrano.svg?style=flat-square">
+  </a>
+  <a href="https://codeclimate.com/github/59naga/cyrano">
+    <img src="https://img.shields.io/codeclimate/coverage/github/59naga/cyrano.svg?style=flat-square">
+  </a>
+</p>
+
 > メソッドチェイン式のイベント管理クラス
 
 Installation
