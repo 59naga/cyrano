@@ -9,7 +9,7 @@ import Promise from 'bluebird';
 */
 const debug = (...args) => {
   const keyword = process.env.DEBUG || '';
-  if (keyword.match(/^cyrano/)) {
+  if (keyword.match && keyword.match(/^cyrano/)) {
     console.info(...args);
   }
 };
