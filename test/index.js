@@ -4,10 +4,10 @@ import EventManager from './event-manager';
 
 // FIXME: translate to english description
 
-test('次のイベントへ値を伝達する', async assert => {
+test('次のイベントへ値を伝達する', async t => {
   const cyrano = new Cyrano;
 
-  assert.is(
+  t.is(
     await cyrano
       .fn(() => `foo`)
       .fn((prevValue) => `${prevValue}bar`)
@@ -16,11 +16,11 @@ test('次のイベントへ値を伝達する', async assert => {
   );
 });
 
-test('次のイベントへ値を伝達し、イベント間で数ミリ秒遅延する', async assert => {
+test('次のイベントへ値を伝達し、イベント間で数ミリ秒遅延する', async t => {
   const cyrano = new Cyrano;
   const begin = Date.now();
 
-  assert.is(
+  t.is(
     await cyrano
       .delay(50)
       .fn(() => `foo`)
@@ -30,15 +30,15 @@ test('次のイベントへ値を伝達し、イベント間で数ミリ秒遅�
       .fn((prevValue) => `${prevValue}baz`)
     , 'foobarbaz'
   );
-  assert.true(
+  t.true(
     Date.now() - begin > 350
   );
 });
 
-test('繰り返すキューを終了する', async assert => {
+test('繰り返すキューを終了する', async t => {
   const cyrano = new Cyrano;
 
-  assert.is(
+  t.is(
     await cyrano
       .loop(function () {
         return this.loopEnd(1);
@@ -46,10 +46,10 @@ test('繰り返すキューを終了する', async assert => {
     , 1
   );
 });
-test('繰り返すキューを終了する（子キュー経由）', async assert => {
+test('繰り返すキューを終了する（子キュー経由）', async t => {
   const cyrano = new Cyrano;
 
-  assert.is(
+  t.is(
     await cyrano
       .loop(function () {
         return this.fn(function () {
@@ -59,10 +59,10 @@ test('繰り返すキューを終了する（子キュー経由）', async asser
     , 1
   );
 });
-test('キューは繰り返され、値を伝達する', async assert => {
+test('キューは繰り返され、値を伝達する', async t => {
   const cyrano = new Cyrano;
 
-  assert.is(
+  t.is(
     await cyrano
       .loop(function () {
         return this.
@@ -77,17 +77,17 @@ test('キューは繰り返され、値を伝達する', async assert => {
   );
 });
 
-test('loop内でキューを返さなければエラーである', async assert => {
+test('loop内でキューを返さなければエラーである', async t => {
   const cyrano = new Cyrano;
 
-  assert.same(
+  t.deepEqual(
     await cyrano
       .loop(() => new Error('bad argument'))
     , new Error('illegal callback')
   );
 });
 
-test('Cyranoクラスを継承し、新しいイベントを定義する', async assert => {
+test('Cyranoクラスを継承し、新しいイベントを定義する', async t => {
   const manager = new EventManager({
     events: {
       foo() {
@@ -104,7 +104,7 @@ test('Cyranoクラスを継承し、新しいイベントを定義する', async
     },
   });
 
-  assert.is(
+  t.is(
     await manager
       .loadEvent('foo')
       .loadEvent('bar')

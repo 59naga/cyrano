@@ -1,5 +1,3 @@
-import Promise from 'bluebird';
-
 // FIXME: translate to english description
 
 /**
